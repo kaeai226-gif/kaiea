@@ -27,8 +27,8 @@ jobs:
         run: npm run check
 
       - name: Build Windows EXE
-        run: npm run dist:win
-        env:
+run: npm run dist:win -- --publish never
+env:
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
 
       - name: Upload EXE
