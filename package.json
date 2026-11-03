@@ -1,0 +1,45 @@
+{
+  "name": "tietie-sticky-notes",
+  "version": "1.0.0",
+  "description": "贴贴 - 一款精致、离线优先的 Windows 桌面便签",
+  "main": "src/main.js",
+  "author": "Tietie Contributors",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer.js && node --test tests/*.test.js",
+    "dist:win": "electron-builder --win nsis portable --x64"
+  },
+  "devDependencies": {
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "dev.tietie.stickynotes",
+    "productName": "贴贴 Tietie",
+    "copyright": "Copyright © 2026 Tietie Contributors",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "artifactName": "Tietie-${version}-${arch}-${target}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "贴贴 Tietie"
+    }
+  }
+}

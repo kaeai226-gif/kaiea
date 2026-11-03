@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'" />
+  <title>贴贴 · 桌面便签</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-color="butter">
+  <main class="note" aria-label="桌面便签">
+    <header class="topbar">
+      <div class="brand" aria-label="贴贴 Tietie">
+        <span class="brand-logo" aria-hidden="true">✳</span>
+        <span class="brand-cn">贴贴</span>
+        <span class="brand-en">STICKY NOTE</span>
+      </div>
+      <div class="actions">
+        <button id="pinBtn" class="icon-button" title="取消置顶" aria-label="切换置顶状态" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 3 6 0-1 5 3 3v2H7v-2l3-3-1-5Z"/><path d="M12 13v8"/></svg>
+        </button>
+        <button id="newBtn" class="icon-button" title="新建便签 (Ctrl+N)" aria-label="新建便签">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button id="hideBtn" class="icon-button close-button" title="隐藏到系统托盘" aria-label="隐藏便签">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="note-content">
+      <div class="eyebrow"><span id="dateText">TUESDAY / 03 NOV</span><span id="noteNumber">NO. 01</span></div>
+      <input type="text" id="titleInput" class="title-input" placeholder="写个小标题…" maxlength="120" autocomplete="off" spellcheck="false" aria-label="便签标题" />
+      <div class="little-line" aria-hidden="true"><span></span></div>
+      <textarea id="bodyInput" class="body-input" placeholder="把想做的事、突然冒出的灵感，或者今天的小确幸写在这里…" maxlength="30000" aria-label="便签正文" spellcheck="false"></textarea>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-rule"></div>
+      <div class="footer-row">
+        <div id="palette" class="palette" role="group" aria-label="便签颜色">
+          <button type="button" class="swatch" data-theme="butter" title="奶油黄" aria-label="奶油黄"></button>
+          <button type="button" class="swatch" data-theme="mint" title="薄荷绿" aria-label="薄荷绿"></button>
+          <button type="button" class="swatch" data-theme="lilac" title="香芋紫" aria-label="香芋紫"></button>
+          <button type="button" class="swatch" data-theme="peach" title="蜜桃粉" aria-label="蜜桃粉"></button>
+          <button type="button" class="swatch" data-theme="sky" title="晴空蓝" aria-label="晴空蓝"></button>
+        </div>
+        <div class="footer-right">
+          <span class="saved" id="savedText"><span class="saved-dot"></span>已保存</span>
+          <button id="moreBtn" class="more-button" title="更多操作（删除 / 导出）" aria-label="更多操作">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+    <div class="resize-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>

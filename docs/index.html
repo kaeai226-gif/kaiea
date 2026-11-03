@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>贴贴 · Tietie Sticky Notes</title>
+<style>
+:root { font-family: "Segoe UI", "Microsoft YaHei UI", "Microsoft YaHei", system-ui, sans-serif; color:#342e31; }
+* {box-sizing:border-box}
+html,body {margin:0;min-height:100%; background:#f7f6f5}
+body {overflow-x:hidden}
+.stage {min-height:860px; padding:56px clamp(30px,7vw,110px); position:relative; overflow:hidden;
+ background:radial-gradient(ellipse 60% 55% at 85% 15%, #ded9ff 0%, transparent 77%), radial-gradient(ellipse 67% 72% at 81% 86%, #c9e5ff 0%,transparent 76%),linear-gradient(115deg,#f8f8ff,#edf1ff 50%,#f5edff);}
+.stage:before {content:'';position:absolute;inset:0;background-image:radial-gradient(#665c82 0.5px,transparent .5px);background-size:26px 26px;opacity:.1;pointer-events:none}
+.navi {display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2; max-width:1280px;margin:auto}
+.logo {display:flex;gap:11px;align-items:center;font-size:18px;font-weight:800;letter-spacing:1px}.logo span {width:32px;height:32px;display:grid;place-items:center;border-radius:11px;background:#473a6b;color:white;font-size:23px}
+.meta {letter-spacing:3px;font-size:11px;color:#898393;font-weight:800}
+.hero {position:relative; z-index:1; margin:116px auto 0; max-width:1280px;}
+.overline {font-size:12px;letter-spacing:4px;font-weight:800;color:#826daa;display:flex;gap:12px;align-items:center}
+.overline:before {content:'';width:26px;height:2px;background:#a790cd}
+h1 {font-size:clamp(42px,4.3vw,71px);font-weight:850;letter-spacing:-3px;line-height:1.24;margin:25px 0 22px;color:#302b37}
+h1 em {font-style:normal;color:#9980c9}
+.intro {color:#797482;font-size:16px;line-height:2.05;margin:0;letter-spacing:.5px}
+.pills {display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.pill {border:1px solid #e4dff1;background:rgba(255,255,255,.5);padding:9px 13px;border-radius:11px;color:#797082;font-size:12px;font-weight:650}
+.scene {position:absolute;top:176px;right:-43px;width:720px;height:630px;transform:scale(.98);transform-origin:top right;}
+.scene:before {content:'';position:absolute;inset:35px 70px 70px 40px;background:radial-gradient(ellipse,#b8a7e4 0, transparent 70%);filter:blur(64px);opacity:.4}
+.mock {position:absolute;width:326px;height:410px; border:0;background:transparent;filter: drop-shadow(0 21px 30px rgba(68,60,92,.14));}
+.mock.a {left:65px;top:15px;transform:rotate(-8deg);z-index:1}
+.mock.b {left:345px;top:76px;transform:rotate(8deg);z-index:2}
+.mock.c {left:168px;top:235px;transform:rotate(-1deg);z-index:3}
+.btm {position:absolute;bottom:25px;left:0;right:0;max-width:1280px;margin:auto;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#8c8798;z-index:1;padding:0 clamp(30px,7vw,110px);letter-spacing:1px}
+.btm .line {height:1px;background:#cbc3da;flex:1;margin:0 18px}
+.features {max-width:1200px;margin:0 auto;padding:70px 25px 110px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature {background:#fff;border:1px solid #eeeaf2;border-radius:20px;padding:28px;box-shadow:0 10px 35px rgba(53,38,89,.03)}
+.feature .ficon {font-size:28px}.feature h3 {margin:14px 0 9px;font-size:17px}.feature p {margin:0;font-size:13px;line-height:1.9;color:#86818a}
+@media(max-width:1060px){.stage{min-height:1040px}.hero{margin-top:64px}.scene{top:445px;right:calc(50% - 350px);transform:scale(.8)}.btm{bottom:20px}}
+@media(max-width:700px){.stage{min-height:1020px;padding:26px}.hero{margin-top:68px}h1{font-size:40px}.scene{right:calc(50% - 258px);top:465px;transform:scale(.66)}.meta{display:none}.features{grid-template-columns:1fr;padding:45px 23px}.btm{padding:0 20px}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="navi"><div class="logo"><span>✳</span>贴贴 <small style="font-size:12px;color:#9e96af">/ TIETIE</small></div><div class="meta">WINDOWS DESKTOP WIDGET · 01</div></div>
+  <div class="hero"><div class="overline">YOUR DESKTOP, YOUR LITTLE CORNER</div><h1>把灵感，<br /><em>轻轻贴在桌面上。</em></h1><p class="intro">不被复杂的工具打扰，让每一件小事都有地方安放。<br />一张会记住你心事的桌面便签。</p><div class="pills"><span class="pill">✦ 离线自动保存</span><span class="pill">✦ 多张自由悬浮</span><span class="pill">✦ 5 款温柔配色</span></div></div>
+  <div class="scene" aria-label="三张不同颜色的便签预览">
+    <iframe class="mock a" src="../src/index.html?demo=lilac" title="紫色便签"></iframe>
+    <iframe class="mock b" src="../src/index.html?demo=mint" title="绿色便签"></iframe>
+    <iframe class="mock c" src="../src/index.html?demo=butter" title="黄色便签"></iframe>
+  </div>
+  <div class="btm"><span>TIETIE / STICKY NOTES</span><span class="line"></span><span>MADE FOR YOUR EVERYDAY</span></div>
+</div>
+<div class="features">
+  <div class="feature"><div class="ficon">✍️</div><h3>写下，就自动保存</h3><p>所有文字存在自己的电脑里，关掉窗口也不会丢，打开继续写。</p></div>
+  <div class="feature"><div class="ficon">📌</div><h3>随手拖动，一键置顶</h3><p>便签大小和位置都可以随时调整，切换工作窗口也能看见重要提醒。</p></div>
+  <div class="feature"><div class="ficon">🎨</div><h3>刚刚好的治愈配色</h3><p>五种柔和纸张色彩，让枯燥的待办事项也有一点生活感。</p></div>
+</div>
+</body>
+</html>
